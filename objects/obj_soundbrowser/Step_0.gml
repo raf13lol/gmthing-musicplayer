@@ -4,7 +4,6 @@ if (fflength == 0)
 	return;
 
 var gmspd = game_get_speed(gamespeed_fps);
-var holdwaittime = 4 - min(floor(holdtime / (gmspd * 3)), 4);
 
 if (keyboard_check_pressed(ord("3")))
 {
@@ -20,10 +19,9 @@ if (holddir == 1)
 {
 	if (keyboard_check(vk_up))
 	{
-		if (holdtime++ >= gmspd / 2 && holdwait-- <= 0)
+		if (holdtime++ >= gmspd / 2)
 		{
 			uppressed = true + 1;
-			holdwait = holdwaittime;
 		}
 	}
 	else
@@ -33,10 +31,9 @@ else if (holddir == 2)
 {
 	if (keyboard_check(vk_down))
 	{
-		if (holdtime++ >= gmspd / 2 && holdwait-- <= 0)
+		if (holdtime++ >= gmspd / 2)
 		{
 			downpressed = true + 1;
-			holdwait = holdwaittime;
 		}
 	}
 	else
@@ -51,7 +48,6 @@ if (uppressed)
 		return;
 	holddir = 1;
 	holdtime = 1;
-	holdwait = holdwaittime;
 }
 if (downpressed)
 {
@@ -62,7 +58,6 @@ if (downpressed)
 		return;
 	holddir = 2;
 	holdtime = 1;
-	holdwait = holdwaittime;
 }
 if (keyboard_check_pressed(vk_space))
 {
@@ -132,7 +127,7 @@ if (keyboard_check_pressed(ord("W")) || keyboard_check_pressed(ord("S")))
 
 var leftpressed = keyboard_check(vk_left) && effectholdtime == 0;
 var rightpressed = !leftpressed && keyboard_check(vk_right) && effectholdtime == 0;
-holdwaittime = 4 - min(floor(effectholdtime / (gmspd * 3)), 4);
+var holdwaittime = 4 - min(floor(effectholdtime / (gmspd * 3)), 4);
 
 if (effectholddir == 1)
 {
