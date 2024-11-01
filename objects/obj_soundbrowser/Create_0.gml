@@ -35,7 +35,6 @@ curselected = 0;
 soundindex = -1;
 holddir = 0;
 holdtime = 0;
-holdwait = 0;
 
 effectselected = 0;
 effectholddir = 0;
