@@ -1,0 +1,4 @@
+*.resource_order
+extrafiles/ATLDotNet/bin/*
+extrafiles/ATLDotNet/obj/*
+extrafiles/ATLDotNet/.vs/*
